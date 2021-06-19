@@ -12,13 +12,13 @@ def downsample(data,col):
     res = pd.merge(n, m, how="inner", on=col)
     return res
 
-def writecsv(data,name):
-    data.to_csv(name)
-
 def readdata(name,col):
     d = pd.read_csv(name,parse_dates = [col],index_col=0)
-    d.drop(d.columns[0],axis = 1,inplace=True)
+    # d.drop(d.columns[0],axis = 1,inplace=True)
     return (d.set_index([col]))
+
+def writecsv(data,name):
+    data.to_csv(name)
 
 if __name__ == '__main__':
     detail = readdata('C:/Users/Monika Bisht/Desktop/Nunam_Internship/Task_1/detail.csv', 'Absolute Time')
